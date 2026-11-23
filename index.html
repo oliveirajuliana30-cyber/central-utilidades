@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Central de Utilidades</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topo">
+    <div class="logo">🧮 Central de Utilidades</div>
+    <nav>
+      <a href="#inicio">Início</a>
+      <a href="#ferramentas">Ferramentas</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="apresentacao" id="inicio">
+      <h1>Central de Utilidades</h1>
+      <p>Ferramentas simples e práticas para resolver situações do dia a dia.</p>
+    </section>
+
+    <section class="cartoes" id="ferramentas">
+      <article class="cartao desconto">
+        <h2>% Calculadora de Descontos</h2>
+        <p>Descubra quanto você economiza em uma compra.</p>
+        <button onclick="executarFerramenta('desconto')">Calcular Desconto</button>
+      </article>
+
+      <article class="cartao parcelas">
+        <h2>💳 Calculadora de Parcelas</h2>
+        <p>Calcule o valor das parcelas de uma compra.</p>
+        <button onclick="executarFerramenta('parcelas')">Calcular Parcelas</button>
+      </article>
+
+      <article class="cartao investimento">
+        <h2>📈 Simulador de Investimentos</h2>
+        <p>Simule o crescimento de um investimento ao longo do tempo.</p>
+        <button onclick="executarFerramenta('investimento')">Simular Investimento</button>
+      </article>
+
+      <article class="cartao despesas">
+        <h2>👥 Divisor de Despesas</h2>
+        <p>Descubra quanto cada pessoa deve pagar em uma conta compartilhada.</p>
+        <button onclick="executarFerramenta('despesas')">Dividir Despesas</button>
+      </article>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <p>© 2026 – Central de Utilidades</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

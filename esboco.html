@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Esboço do layout – Central de Utilidades</title>
+  <style>
+    * { box-sizing: border-box; font-family: Arial, sans-serif; }
+    body { margin: 0; padding: 16px; background: #fff; color: #222; }
+    h1 { font-size: 1.4rem; }
+    .grade { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+    .tela { border: 2px solid #333; border-radius: 6px; padding: 12px; }
+    .tela h2 { font-size: 1.05rem; margin: 0 0 8px; text-align: center; border-bottom: 2px solid #333; padding-bottom: 6px; }
+    .voltar { font-size: 0.8rem; margin-bottom: 8px; }
+    .corpo { display: flex; gap: 10px; flex-wrap: wrap; }
+    .entrada, .resultado { flex: 1; min-width: 130px; }
+    .resultado { border: 2px dashed #555; padding: 8px; background: #f2f2f2; }
+    .resultado b { display: block; margin-bottom: 6px; }
+    label { display: block; font-size: 0.8rem; margin-top: 6px; }
+    .campo { border: 1.5px solid #333; height: 26px; border-radius: 4px; }
+    .botao { margin-top: 10px; border: 2px solid #333; background: #ddd; text-align: center; padding: 6px; font-weight: bold; font-size: 0.85rem; border-radius: 4px; }
+    .linha { font-size: 0.8rem; border-bottom: 1px solid #aaa; padding: 3px 0; }
+    .lista { border: 1.5px solid #333; padding: 4px 6px; margin-top: 6px; font-size: 0.78rem; }
+  </style>
+</head>
+<body>
+  <h1>Esboço do layout – Central de Utilidades</h1>
+  <p>Cada ferramenta tem os campos de entrada à esquerda e a área de resultado à direita.</p>
+
+  <div class="grade">
+    <div class="tela">
+      <h2>Calculadora de Descontos</h2>
+      <div class="voltar">← Voltar para as ferramentas</div>
+      <div class="corpo">
+        <div class="entrada">
+          <label>Preço original (R$)</label><div class="campo"></div>
+          <label>Desconto (%)</label><div class="campo"></div>
+          <div class="botao">Calcular Desconto</div>
+        </div>
+        <div class="resultado">
+          <b>Resultado</b>
+          <div class="linha">Preço original</div>
+          <div class="linha">Desconto (%)</div>
+          <div class="linha">Valor economizado</div>
+          <div class="linha"><b>Preço final</b></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tela">
+      <h2>Calculadora de Parcelas</h2>
+      <div class="voltar">← Voltar para as ferramentas</div>
+      <div class="corpo">
+        <div class="entrada">
+          <label>Valor total da compra (R$)</label><div class="campo"></div>
+          <label>Quantidade de parcelas</label><div class="campo"></div>
+          <div class="botao">Calcular Parcelas</div>
+        </div>
+        <div class="resultado">
+          <b>Resultado</b>
+          <div class="linha">Valor total</div>
+          <div class="linha">Quantidade de parcelas</div>
+          <div class="linha"><b>Valor de cada parcela</b></div>
+          <div class="linha">(mensagem de erro se inválido)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tela">
+      <h2>Simulador de Investimentos</h2>
+      <div class="voltar">← Voltar para as ferramentas</div>
+      <div class="corpo">
+        <div class="entrada">
+          <label>Investimento inicial (R$)</label><div class="campo"></div>
+          <label>Aporte mensal (R$)</label><div class="campo"></div>
+          <label>Taxa de rendimento mensal (%)</label><div class="campo"></div>
+          <label>Período (meses)</label><div class="campo"></div>
+          <div class="botao">Simular Investimento</div>
+        </div>
+        <div class="resultado">
+          <b>Resultado da Simulação</b>
+          <div class="linha"><b>Saldo final</b></div>
+          <div class="linha">Total investido</div>
+          <div class="linha">Rendimento obtido</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tela">
+      <h2>Divisor de Despesas</h2>
+      <div class="voltar">← Voltar para as ferramentas</div>
+      <div class="corpo">
+        <div class="entrada">
+          <label>Valor da despesa (R$)</label><div class="campo"></div>
+          <div class="botao">Adicionar</div>
+          <div class="lista">Despesas incluídas:<br>• Almoço – R$ 80,00<br>• Combustível – R$ 120,00</div>
+          <label>Quantidade de pessoas</label><div class="campo"></div>
+          <div class="botao">Dividir Despesas</div>
+        </div>
+        <div class="resultado">
+          <b>Resultado</b>
+          <div class="linha">Total das despesas</div>
+          <div class="linha">Quantidade de pessoas</div>
+          <div class="linha"><b>Valor por pessoa</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
