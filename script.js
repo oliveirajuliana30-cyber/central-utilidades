@@ -153,30 +153,77 @@ function simuladorInvestimentos() {
   );
 }
 
-// ---------- d) Divisor de despesas ----------
+// ---------- d) Divisor de despesas (Entrega 2: arrays e objetos) ----------
+
+// Cria o objeto que representa uma despesa
+function criarDespesa(descricao, valor) {
+  return {
+    descricao: descricao,
+    valor: valor
+  };
+}
+
+// Pede as despesas ao usuário e guarda cada uma (como objeto) em um array
+function cadastrarDespesas() {
+  const despesas = [];
+  let continuar = true;
+
+  while (continuar) {
+    const descricao = prompt("Descrição da despesa (ex.: Almoço):");
+    if (descricao === null) {
+      break; // cancelar = encerrar a inclusão
+    }
+    if (descricao.trim() === "") {
+      alert("Descrição inválida! Digite um nome para a despesa.");
+      continue;
+    }
+
+    const valor = lerNumero("Valor da despesa \"" + descricao.trim() + "\" (R$):");
+    if (valor === null) {
+      break;
+    }
+    if (isNaN(valor) || valor <= 0) {
+      alert("Valor inválido! Digite um número maior que zero.");
+      continue;
+    }
+
+    despesas.push(criarDespesa(descricao.trim(), valor));
+    continuar = confirm("Despesa adicionada! Deseja informar outra despesa?");
+  }
+
+  return despesas;
+}
+
+// Percorre o array somando o valor de cada despesa
+function calcularTotal(despesas) {
+  let total = 0;
+
+  for (let i = 0; i < despesas.length; i++) {
+    total = total + despesas[i].valor;
+  }
+
+  return total;
+}
+
+// Percorre o array montando o texto com o detalhamento
+function montarDetalhamento(despesas) {
+  let texto = "";
+
+  for (const despesa of despesas) {
+    texto += "• " + despesa.descricao + ": " + formatarMoeda(despesa.valor) + "\n";
+  }
+
+  return texto;
+}
 
 function dividirValor(total, pessoas) {
   return total / pessoas;
 }
 
 function divisorDespesas() {
-  let total = 0;
-  let valor;
+  const despesas = cadastrarDespesas();
 
-  // do...while: repete até o usuário digitar 0 (ou cancelar)
-  do {
-    valor = lerNumero("Digite o valor da despesa (R$).\nDigite 0 para encerrar:");
-
-    if (valor === null) {
-      valor = 0; // cancelar = encerrar
-    } else if (isNaN(valor) || valor < 0) {
-      alert("Valor inválido! Digite um número positivo ou 0 para encerrar.");
-    } else {
-      total = total + valor;
-    }
-  } while (valor !== 0);
-
-  if (total === 0) {
+  if (despesas.length === 0) {
     alert("Nenhuma despesa foi informada.");
     return;
   }
@@ -184,18 +231,20 @@ function divisorDespesas() {
   const pessoas = lerNumero("Digite a quantidade de pessoas na divisão:");
   if (pessoas === null) return;
 
-  if (isNaN(pessoas) || pessoas < 1 || !Number.isInteger(pessoas)) {
-    alert("Quantidade de pessoas inválida! Digite um número inteiro maior ou igual a 1.");
+  if (isNaN(pessoas) || pessoas <= 0 || !Number.isInteger(pessoas)) {
+    alert("Quantidade de pessoas inválida! Digite um número inteiro maior que zero.");
     return;
   }
 
+  const total = calcularTotal(despesas);
   const porPessoa = dividirValor(total, pessoas);
 
   alert(
     "=== DIVISOR DE DESPESAS ===\n" +
     "Total das despesas: " + formatarMoeda(total) + "\n" +
     "Quantidade de pessoas: " + pessoas + "\n" +
-    "Valor por pessoa: " + formatarMoeda(porPessoa)
+    "Valor por pessoa: " + formatarMoeda(porPessoa) + "\n\n" +
+    "Detalhamento:\n" + montarDetalhamento(despesas)
   );
 }
 
