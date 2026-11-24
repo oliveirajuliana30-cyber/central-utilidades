@@ -10,41 +10,136 @@
   <header class="topo">
     <div class="logo">🧮 Central de Utilidades</div>
     <nav>
-      <a href="#inicio">Início</a>
-      <a href="#ferramentas">Ferramentas</a>
+      <a href="#inicio" data-alvo="inicio">Início</a>
+      <a href="#ferramentas" data-alvo="ferramentas">Ferramentas</a>
+      <a href="#sobre" data-alvo="sobre">Sobre</a>
     </nav>
   </header>
 
   <main>
-    <section class="apresentacao" id="inicio">
-      <h1>Central de Utilidades</h1>
-      <p>Ferramentas simples e práticas para resolver situações do dia a dia.</p>
+    <!-- TELA INICIAL -->
+    <div class="tela" id="home">
+      <section class="apresentacao" id="inicio">
+        <h1>Central de Utilidades</h1>
+        <p>Ferramentas simples e práticas para resolver situações do dia a dia.</p>
+      </section>
+
+      <section class="cartoes" id="ferramentas">
+        <article class="cartao desconto">
+          <h2>% Calculadora de Descontos</h2>
+          <p>Descubra quanto você economiza em uma compra.</p>
+          <button type="button" data-ferramenta="desconto">Calcular Desconto</button>
+        </article>
+        <article class="cartao parcelas">
+          <h2>💳 Calculadora de Parcelas</h2>
+          <p>Calcule o valor das parcelas de uma compra.</p>
+          <button type="button" data-ferramenta="parcelas">Calcular Parcelas</button>
+        </article>
+        <article class="cartao investimento">
+          <h2>📈 Simulador de Investimentos</h2>
+          <p>Simule o crescimento de um investimento ao longo do tempo.</p>
+          <button type="button" data-ferramenta="investimento">Simular Investimento</button>
+        </article>
+        <article class="cartao despesas">
+          <h2>👥 Divisor de Despesas</h2>
+          <p>Descubra quanto cada pessoa deve pagar em uma conta compartilhada.</p>
+          <button type="button" data-ferramenta="despesas">Dividir Despesas</button>
+        </article>
+      </section>
+
+      <section class="sobre" id="sobre">
+        <h2>Sobre</h2>
+        <p>Projeto Integrador de Programação Web I (IF Sudeste MG – Campus Barbacena), feito com HTML, CSS e JavaScript.</p>
+      </section>
+    </div>
+
+    <!-- CALCULADORA DE DESCONTOS -->
+    <section class="tela oculta" id="desconto">
+      <button type="button" class="voltar" data-voltar>← Voltar para as ferramentas</button>
+      <div class="painel">
+        <form id="form-desconto" novalidate>
+          <h2>% Calculadora de Descontos</h2>
+          <p class="sub">Descubra quanto você economiza em uma compra.</p>
+          <label for="desc-preco">Preço original (R$)</label>
+          <input type="number" id="desc-preco" step="any" min="0" inputmode="decimal" placeholder="Ex.: 200,00">
+          <label for="desc-percentual">Desconto (%)</label>
+          <input type="number" id="desc-percentual" step="any" min="0" max="100" inputmode="decimal" placeholder="Ex.: 15">
+          <p class="erro" id="erro-desconto" role="alert"></p>
+          <button type="submit">Calcular Desconto</button>
+        </form>
+        <div class="resultado" id="resultado-desconto" aria-live="polite"></div>
+      </div>
     </section>
 
-    <section class="cartoes" id="ferramentas">
-      <article class="cartao desconto">
-        <h2>% Calculadora de Descontos</h2>
-        <p>Descubra quanto você economiza em uma compra.</p>
-        <button onclick="executarFerramenta('desconto')">Calcular Desconto</button>
-      </article>
+    <!-- CALCULADORA DE PARCELAS -->
+    <section class="tela oculta" id="parcelas">
+      <button type="button" class="voltar" data-voltar>← Voltar para as ferramentas</button>
+      <div class="painel">
+        <form id="form-parcelas" novalidate>
+          <h2>💳 Calculadora de Parcelas</h2>
+          <p class="sub">Calcule o valor das parcelas de uma compra (sem juros).</p>
+          <label for="parc-total">Valor total da compra (R$)</label>
+          <input type="number" id="parc-total" step="any" min="0" inputmode="decimal" placeholder="Ex.: 1200,00">
+          <label for="parc-qtd">Quantidade de parcelas</label>
+          <input type="number" id="parc-qtd" step="1" min="1" inputmode="numeric" placeholder="Ex.: 6">
+          <p class="erro" id="erro-parcelas" role="alert"></p>
+          <button type="submit">Calcular Parcelas</button>
+        </form>
+        <div class="resultado" id="resultado-parcelas" aria-live="polite"></div>
+      </div>
+    </section>
 
-      <article class="cartao parcelas">
-        <h2>💳 Calculadora de Parcelas</h2>
-        <p>Calcule o valor das parcelas de uma compra.</p>
-        <button onclick="executarFerramenta('parcelas')">Calcular Parcelas</button>
-      </article>
+    <!-- SIMULADOR DE INVESTIMENTOS -->
+    <section class="tela oculta" id="investimento">
+      <button type="button" class="voltar" data-voltar>← Voltar para as ferramentas</button>
+      <div class="painel">
+        <form id="form-investimento" novalidate>
+          <h2>📈 Simulador de Investimentos</h2>
+          <p class="sub">Simule o crescimento de um investimento ao longo do tempo.</p>
+          <label for="inv-inicial">Investimento inicial (R$)</label>
+          <input type="number" id="inv-inicial" step="any" min="0" inputmode="decimal" placeholder="Ex.: 1000,00">
+          <label for="inv-aporte">Aporte mensal (R$)</label>
+          <input type="number" id="inv-aporte" step="any" min="0" inputmode="decimal" placeholder="Ex.: 200,00">
+          <label for="inv-taxa">Taxa de rendimento mensal (%)</label>
+          <input type="number" id="inv-taxa" step="any" min="0" inputmode="decimal" placeholder="Ex.: 1">
+          <label for="inv-meses">Período (meses)</label>
+          <input type="number" id="inv-meses" step="1" min="1" inputmode="numeric" placeholder="Ex.: 12">
+          <p class="erro" id="erro-investimento" role="alert"></p>
+          <button type="submit">Simular Investimento</button>
+        </form>
+        <div class="resultado" id="resultado-investimento" aria-live="polite"></div>
+      </div>
+    </section>
 
-      <article class="cartao investimento">
-        <h2>📈 Simulador de Investimentos</h2>
-        <p>Simule o crescimento de um investimento ao longo do tempo.</p>
-        <button onclick="executarFerramenta('investimento')">Simular Investimento</button>
-      </article>
+    <!-- DIVISOR DE DESPESAS -->
+    <section class="tela oculta" id="despesas">
+      <button type="button" class="voltar" data-voltar>← Voltar para as ferramentas</button>
+      <div class="painel">
+        <div>
+          <h2>👥 Divisor de Despesas</h2>
+          <p class="sub">Descubra quanto cada pessoa deve pagar em uma conta compartilhada.</p>
 
-      <article class="cartao despesas">
-        <h2>👥 Divisor de Despesas</h2>
-        <p>Descubra quanto cada pessoa deve pagar em uma conta compartilhada.</p>
-        <button onclick="executarFerramenta('despesas')">Dividir Despesas</button>
-      </article>
+          <form id="form-adicionar" novalidate>
+            <label for="desp-descricao">Descrição da despesa</label>
+            <input type="text" id="desp-descricao" placeholder="Ex.: Almoço">
+            <label for="desp-valor">Valor (R$)</label>
+            <input type="number" id="desp-valor" step="any" min="0" inputmode="decimal" placeholder="Ex.: 50,00">
+            <p class="erro" id="erro-despesa-add" role="alert"></p>
+            <button type="submit">➕ Adicionar despesa</button>
+          </form>
+
+          <h3>Despesas incluídas</h3>
+          <ul class="lista" id="lista-despesas"></ul>
+
+          <form id="form-despesas" novalidate>
+            <label for="desp-pessoas">Quantidade de pessoas</label>
+            <input type="number" id="desp-pessoas" step="1" min="1" inputmode="numeric" placeholder="Ex.: 4">
+            <p class="erro" id="erro-despesas" role="alert"></p>
+            <button type="submit">Dividir Despesas</button>
+          </form>
+        </div>
+        <div class="resultado" id="resultado-despesas" aria-live="polite"></div>
+      </div>
     </section>
   </main>
 
