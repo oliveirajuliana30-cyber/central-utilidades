@@ -4,44 +4,105 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Central de Utilidades</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="topo">
-    <div class="logo">🧮 Central de Utilidades</div>
-    <nav>
-      <a href="#inicio" data-alvo="inicio">Início</a>
-      <a href="#ferramentas" data-alvo="ferramentas">Ferramentas</a>
-      <a href="#sobre" data-alvo="sobre">Sobre</a>
-    </nav>
+    <div class="topo-interno">
+      <a class="logo" href="#inicio" data-alvo="inicio">
+        <svg class="logo-marca" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="#1f5eff"/>
+          <rect x="7" y="6" width="18" height="6" rx="2" fill="#fff"/>
+          <rect x="7" y="15" width="4.5" height="4" rx="1.2" fill="#fff"/>
+          <rect x="13.75" y="15" width="4.5" height="4" rx="1.2" fill="#fff"/>
+          <rect x="20.5" y="15" width="4.5" height="4" rx="1.2" fill="#fff"/>
+          <rect x="7" y="21.5" width="4.5" height="4" rx="1.2" fill="#fff"/>
+          <rect x="13.75" y="21.5" width="4.5" height="4" rx="1.2" fill="#fff"/>
+          <rect x="20.5" y="21.5" width="4.5" height="4" rx="1.2" fill="#9db9f5"/>
+        </svg>
+        <span>Central de Utilidades</span>
+      </a>
+      <nav>
+        <a href="#inicio" data-alvo="inicio">Início</a>
+        <a href="#ferramentas" data-alvo="ferramentas">Ferramentas</a>
+        <a href="#sobre" data-alvo="sobre">Sobre</a>
+      </nav>
+    </div>
   </header>
 
   <main>
     <!-- TELA INICIAL -->
     <div class="tela" id="home">
       <section class="apresentacao" id="inicio">
-        <h1>Central de Utilidades</h1>
-        <p>Ferramentas simples e práticas para resolver situações do dia a dia.</p>
+        <div class="apresentacao-texto">
+          <h1>Central de Utilidades</h1>
+          <p>Ferramentas simples e práticas para resolver situações do dia a dia: descontos, parcelas, investimentos e contas divididas.</p>
+          <a class="botao-principal" href="#ferramentas" data-alvo="ferramentas">Ver ferramentas</a>
+        </div>
+        <svg class="apresentacao-arte" viewBox="0 0 320 240" role="img" aria-label="Calculadora, moedas e gráfico de barras">
+          <ellipse cx="170" cy="216" rx="135" ry="13" fill="#dbe6fb"/>
+          <g transform="rotate(-6 150 120)">
+            <rect x="95" y="25" width="120" height="170" rx="16" fill="#12233f"/>
+            <rect x="107" y="39" width="96" height="36" rx="8" fill="#cfe0ff"/>
+            <text x="196" y="66" text-anchor="end" font-size="21" font-weight="800" fill="#12233f" font-family="Plus Jakarta Sans, Arial, sans-serif">1.250,00</text>
+            <g fill="#2c4468">
+              <rect x="107" y="87" width="26" height="20" rx="5"/>
+              <rect x="139" y="87" width="26" height="20" rx="5"/>
+              <rect x="171" y="87" width="26" height="20" rx="5"/>
+              <rect x="107" y="113" width="26" height="20" rx="5"/>
+              <rect x="139" y="113" width="26" height="20" rx="5"/>
+              <rect x="171" y="113" width="26" height="20" rx="5" fill="#187a4c"/>
+              <rect x="107" y="139" width="26" height="20" rx="5"/>
+              <rect x="139" y="139" width="26" height="20" rx="5"/>
+              <rect x="171" y="139" width="26" height="20" rx="5"/>
+              <rect x="107" y="165" width="58" height="20" rx="5"/>
+              <rect x="171" y="165" width="26" height="20" rx="5" fill="#1f5eff"/>
+            </g>
+          </g>
+          <g stroke="#b9791a" stroke-width="2">
+            <ellipse cx="58" cy="196" rx="32" ry="11" fill="#f2b441"/>
+            <ellipse cx="58" cy="186" rx="32" ry="11" fill="#f2b441"/>
+            <ellipse cx="58" cy="176" rx="32" ry="11" fill="#f6c566"/>
+          </g>
+          <rect x="236" y="160" width="18" height="40" rx="4" fill="#9db9f5"/>
+          <rect x="260" y="130" width="18" height="70" rx="4" fill="#5b8cf0"/>
+          <rect x="284" y="92" width="18" height="108" rx="4" fill="#1f5eff"/>
+        </svg>
       </section>
 
       <section class="cartoes" id="ferramentas">
         <article class="cartao desconto">
-          <h2>% Calculadora de Descontos</h2>
+          <span class="icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M19 5L5 19"/><circle cx="7" cy="7" r="2.5"/><circle cx="17" cy="17" r="2.5"/></svg>
+          </span>
+          <h2>Calculadora de Descontos</h2>
           <p>Descubra quanto você economiza em uma compra.</p>
           <button type="button" data-ferramenta="desconto">Calcular Desconto</button>
         </article>
         <article class="cartao parcelas">
-          <h2>💳 Calculadora de Parcelas</h2>
+          <span class="icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2.5"/><path d="M3 11h18M7 15h4"/></svg>
+          </span>
+          <h2>Calculadora de Parcelas</h2>
           <p>Calcule o valor das parcelas de uma compra.</p>
           <button type="button" data-ferramenta="parcelas">Calcular Parcelas</button>
         </article>
         <article class="cartao investimento">
-          <h2>📈 Simulador de Investimentos</h2>
+          <span class="icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M5 20v-7M12 20V8M19 20V4"/></svg>
+          </span>
+          <h2>Simulador de Investimentos</h2>
           <p>Simule o crescimento de um investimento ao longo do tempo.</p>
           <button type="button" data-ferramenta="investimento">Simular Investimento</button>
         </article>
         <article class="cartao despesas">
-          <h2>👥 Divisor de Despesas</h2>
+          <span class="icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 19c0-3 2.7-5 6-5s6 2 6 5"/><circle cx="17" cy="9" r="2.2"/><path d="M17 14c2.5 0 4 1.7 4 4"/></svg>
+          </span>
+          <h2>Divisor de Despesas</h2>
           <p>Descubra quanto cada pessoa deve pagar em uma conta compartilhada.</p>
           <button type="button" data-ferramenta="despesas">Dividir Despesas</button>
         </article>
@@ -49,7 +110,7 @@
 
       <section class="sobre" id="sobre">
         <h2>Sobre</h2>
-        <p>Projeto Integrador de Programação Web I (IF Sudeste MG – Campus Barbacena), feito com HTML, CSS e JavaScript.</p>
+        <p>Projeto Integrador de Programação Web I, do curso Técnico em Informática para Internet (IF Sudeste MG, Campus Barbacena). Feito com HTML, CSS e JavaScript.</p>
       </section>
     </div>
 
@@ -58,7 +119,7 @@
       <button type="button" class="voltar" data-voltar>← Voltar para as ferramentas</button>
       <div class="painel">
         <form id="form-desconto" novalidate>
-          <h2>% Calculadora de Descontos</h2>
+          <h2>Calculadora de Descontos</h2>
           <p class="sub">Descubra quanto você economiza em uma compra.</p>
           <label for="desc-preco">Preço original (R$)</label>
           <input type="number" id="desc-preco" step="any" min="0" inputmode="decimal" placeholder="Ex.: 200,00">
@@ -76,8 +137,8 @@
       <button type="button" class="voltar" data-voltar>← Voltar para as ferramentas</button>
       <div class="painel">
         <form id="form-parcelas" novalidate>
-          <h2>💳 Calculadora de Parcelas</h2>
-          <p class="sub">Calcule o valor das parcelas de uma compra (sem juros).</p>
+          <h2>Calculadora de Parcelas</h2>
+          <p class="sub">Calcule o valor das parcelas de uma compra, sem juros.</p>
           <label for="parc-total">Valor total da compra (R$)</label>
           <input type="number" id="parc-total" step="any" min="0" inputmode="decimal" placeholder="Ex.: 1200,00">
           <label for="parc-qtd">Quantidade de parcelas</label>
@@ -94,16 +155,26 @@
       <button type="button" class="voltar" data-voltar>← Voltar para as ferramentas</button>
       <div class="painel">
         <form id="form-investimento" novalidate>
-          <h2>📈 Simulador de Investimentos</h2>
+          <h2>Simulador de Investimentos</h2>
           <p class="sub">Simule o crescimento de um investimento ao longo do tempo.</p>
-          <label for="inv-inicial">Investimento inicial (R$)</label>
-          <input type="number" id="inv-inicial" step="any" min="0" inputmode="decimal" placeholder="Ex.: 1000,00">
-          <label for="inv-aporte">Aporte mensal (R$)</label>
-          <input type="number" id="inv-aporte" step="any" min="0" inputmode="decimal" placeholder="Ex.: 200,00">
-          <label for="inv-taxa">Taxa de rendimento mensal (%)</label>
-          <input type="number" id="inv-taxa" step="any" min="0" inputmode="decimal" placeholder="Ex.: 1">
-          <label for="inv-meses">Período (meses)</label>
-          <input type="number" id="inv-meses" step="1" min="1" inputmode="numeric" placeholder="Ex.: 12">
+          <div class="campos-duplos">
+            <div>
+              <label for="inv-inicial">Investimento inicial (R$)</label>
+              <input type="number" id="inv-inicial" step="any" min="0" inputmode="decimal" placeholder="Ex.: 1000,00">
+            </div>
+            <div>
+              <label for="inv-aporte">Aporte mensal (R$)</label>
+              <input type="number" id="inv-aporte" step="any" min="0" inputmode="decimal" placeholder="Ex.: 200,00">
+            </div>
+            <div>
+              <label for="inv-taxa">Rendimento mensal (%)</label>
+              <input type="number" id="inv-taxa" step="any" min="0" inputmode="decimal" placeholder="Ex.: 1">
+            </div>
+            <div>
+              <label for="inv-meses">Período (meses)</label>
+              <input type="number" id="inv-meses" step="1" min="1" inputmode="numeric" placeholder="Ex.: 12">
+            </div>
+          </div>
           <p class="erro" id="erro-investimento" role="alert"></p>
           <button type="submit">Simular Investimento</button>
         </form>
@@ -116,7 +187,7 @@
       <button type="button" class="voltar" data-voltar>← Voltar para as ferramentas</button>
       <div class="painel">
         <div>
-          <h2>👥 Divisor de Despesas</h2>
+          <h2>Divisor de Despesas</h2>
           <p class="sub">Descubra quanto cada pessoa deve pagar em uma conta compartilhada.</p>
 
           <form id="form-adicionar" novalidate>
@@ -125,7 +196,7 @@
             <label for="desp-valor">Valor (R$)</label>
             <input type="number" id="desp-valor" step="any" min="0" inputmode="decimal" placeholder="Ex.: 50,00">
             <p class="erro" id="erro-despesa-add" role="alert"></p>
-            <button type="submit">➕ Adicionar despesa</button>
+            <button type="submit" class="secundario">Adicionar despesa</button>
           </form>
 
           <h3>Despesas incluídas</h3>
